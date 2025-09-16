@@ -1,0 +1,84 @@
+<div>
+    <h1>Simulador de velocidade de internet necessária</h1>
+    <p>Informe quantos dispositivos você tem e o tipo de uso para receber a recomendação mínima de Mbps.</p>
+
+    <form id="simulador" action="#" method="get" aria-labelledby="simulador-title">
+        <fieldset>
+            <legend id="simulador-title">Dispositivos</legend>
+
+            <div class="form-row">
+                <label for="tv-count">Televisores (TV)</label>
+                <input id="tv-count" name="tv-count" type="number" min="0" value="1"/>
+                <label for="tv-usage">Uso da TV</label>
+                <select id="tv-usage" name="tv-usage">
+                    <option value="3">Leve (SD) — 3 Mbps</option>
+                    <option value="8" selected>Normal (HD) — 8 Mbps</option>
+                    <option value="20">Pesado (4K) — 20 Mbps</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="pc-count">Computadores (PC / Notebook)</label>
+                <input id="pc-count" name="pc-count" type="number" min="0" value="1" />
+                <label for="pc-usage">Uso do PC</label>
+                <select id="pc-usage" name="pc-usage">
+                    <option value="3">Leve (navegação) — 3 Mbps</option>
+                    <option value="8" selected>Trabalho / Vídeo-chamada — 8 Mbps</option>
+                    <option value="20">Gaming / Uploads grandes — 20 Mbps</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="phone-count">Celulares</label>
+                <input id="phone-count" name="phone-count" type="number" min="0" value="2" />
+                <label for="phone-usage">Uso do celular</label>
+                <select id="phone-usage" name="phone-usage">
+                    <option value="1">Leve — 1 Mbps</option>
+                    <option value="3" selected>Normal — 3 Mbps</option>
+                    <option value="6">Pesado — 6 Mbps</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="other-count">Outros dispositivos (IoT, consoles, TV Box)</label>
+                <input id="other-count" name="other-count" type="number" min="0" value="1" />
+                <label for="other-usage">Uso outros</label>
+                <select id="other-usage" name="other-usage">
+                    <option value="1">Baixo — 1 Mbps</option>
+                    <option value="5" selected>Médio — 5 Mbps</option>
+                    <option value="10">Alto — 10 Mbps</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Margem de segurança</legend>
+            <label for="safety">Margem (%)</label>
+            <input id="safety" name="safety" type="range" min="0" max="100" value="20"/>
+            <span id="safety-value">20%</span>
+        </fieldset>
+
+        <div>
+            <button type="submit">Calcular recomendação</button>
+            <button type="reset" onclick="resetSimulador()">Limpar</button>
+        </div>
+    </form>
+
+    <section aria-live="polite" id="resultado">
+        <h2>Recomendação mínima</h2>
+        <p id="recom-mbps">— Mbps</p>
+
+        <h3>Planos sugeridos</h3>
+        
+        <ul id="planos-sugeridos">
+            <li>—</li>
+        </ul>
+
+        <p>
+            <small>
+            Valores pré-definidos por dispositivo são estimativas. Para uso crítico (múltiplos streams 4K, jogos competitivos),
+            escolha um plano com latência baixa e maior margem.
+            </small>
+        </p>
+    </section>
+</div>
