@@ -47,3 +47,70 @@
 .home p + p {
     text-indent: 1.2rem;
 }
+
+@media (max-width: 1024px) {
+  .home {
+    margin: 2.5rem auto;
+    padding: 1.8rem;
+    font-size: 1rem;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .home p:first-of-type {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .home {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .home h1 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .home p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .home p:first-of-type {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    margin: 1.5rem 0.8rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .home h1 {
+    font-size: 1.4rem;
+  }
+
+  .home p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .home p:first-of-type {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .home p + p {
+    text-indent: 0; 
+  }
+}

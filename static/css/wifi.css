@@ -70,3 +70,90 @@
 .wifi strong {
     color: #fff;
 }
+
+@media (max-width: 1024px) {
+  .wifi {
+    margin: 2.5rem auto;
+    padding: 1.8rem 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .wifi h1 {
+    font-size: 2.1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .wifi h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .wifi {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .wifi h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .wifi h2 {
+    font-size: 1.3rem;
+    padding-left: 0.6rem;
+    margin: 1.5rem 0 0.8rem;
+  }
+
+  .wifi p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    text-align: left; 
+  }
+
+  .wifi ul {
+    margin: 0.8rem 0 1.2rem 1rem;
+  }
+
+  .wifi ul li {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wifi {
+    margin: 1.5rem 0.8rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .wifi h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .wifi h2 {
+    font-size: 1.15rem;
+    margin: 1.2rem 0 0.6rem;
+    padding-left: 0.5rem;
+  }
+
+  .wifi p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .wifi ul {
+    margin: 0.6rem 0 1rem 0.6rem;
+  }
+
+  .wifi ul li {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.7rem;
+  }
+}
