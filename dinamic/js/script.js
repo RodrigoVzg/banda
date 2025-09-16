@@ -41,60 +41,67 @@ function carregarPagina (busca){
 
 //Calculadora
 function inicializarSimulador() {
-    const safetyInput = document.getElementById('safety');
-    const safetyValue = document.getElementById('safety-value');
+  const safetyInput = document.getElementById('safety');
+  const safetyValue = document.getElementById('safety-value');
 
-    if (!safetyInput || !safetyValue) return; 
+  if (!safetyInput || !safetyValue) return;
 
-    safetyInput.addEventListener('input', () => {
-        const val = safetyInput.value;
-        safetyValue.textContent = `${val}%`;
+  // Atualizar margem (%) em tempo real
+  safetyInput.addEventListener('input', () => {
+    const val = safetyInput.value;
+    safetyValue.textContent = `${val}%`;
 
-        const percent = (val - safetyInput.min) / (safetyInput.max - safetyInput.min) * 100;
-        safetyInput.style.setProperty('--value', `${percent}%`);
-    });
+    const percent = (val - safetyInput.min) / (safetyInput.max - safetyInput.min) * 100;
+    safetyInput.style.setProperty('--value', `${percent}%`);
+  });
 
-    const form = document.getElementById('simulador');
-    const resultadoMbps = document.getElementById('recom-mbps');
-    const planosSugeridos = document.getElementById('planos-sugeridos');
+  const form = document.getElementById('simulador');
+  const resultadoMbps = document.getElementById('recom-mbps');
+  const planosSugeridos = document.getElementById('planos-sugeridos');
 
-    // Função para calcular Mbps
-    function calcularMbps() {
-        const tvCount = Number(document.getElementById('tv-count').value);
-        const tvUsage = Number(document.getElementById('tv-usage').value);
-        const pcCount = Number(document.getElementById('pc-count').value);
-        const pcUsage = Number(document.getElementById('pc-usage').value);
-        const phoneCount = Number(document.getElementById('phone-count').value);
-        const phoneUsage = Number(document.getElementById('phone-usage').value);
-        const otherCount = Number(document.getElementById('other-count').value);
-        const otherUsage = Number(document.getElementById('other-usage').value);
-        const safetyPercent = Number(safetyInput.value);
+  // Função para calcular Mbps
+  function calcularMbps() {
+    const tvCount = Number(document.getElementById('tv-count').value);
+    const tvUsage = Number(document.querySelector('input[name="tv-usage"]:checked').value);
 
-        let totalMbps =
-            tvCount * tvUsage +
-            pcCount * pcUsage +
-            phoneCount * phoneUsage +
-            otherCount * otherUsage;
+    const pcCount = Number(document.getElementById('pc-count').value);
+    const pcUsage = Number(document.querySelector('input[name="pc-usage"]:checked').value);
 
-        totalMbps *= 1 + safetyPercent / 100;
-        return Math.ceil(totalMbps);
-    }
+    const phoneCount = Number(document.getElementById('phone-count').value);
+    const phoneUsage = Number(document.querySelector('input[name="phone-usage"]:checked').value);
 
-    function gerarPlanos(minMbps) {
-        const planos = [50, 100, 200, 500];
-        return planos.filter(p => p >= minMbps);
-    }
+    const otherCount = Number(document.getElementById('other-count').value);
+    const otherUsage = Number(document.querySelector('input[name="other-usage"]:checked').value);
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const minMbps = calcularMbps();
-        resultadoMbps.textContent = `${minMbps} Mbps`;
+    const safetyPercent = Number(safetyInput.value);
 
-        const planos = gerarPlanos(minMbps);
-        planosSugeridos.innerHTML = planos.length
-            ? planos.map(p => `<li>${p} Mbps</li>`).join('')
-            : '<li>Nenhum plano disponível</li>';
-    });
+    let totalMbps =
+      tvCount * tvUsage +
+      pcCount * pcUsage +
+      phoneCount * phoneUsage +
+      otherCount * otherUsage;
+
+    totalMbps *= 1 + safetyPercent / 100;
+    return Math.ceil(totalMbps);
+  }
+
+  // Gera lista de planos compatíveis
+  function gerarPlanos(minMbps) {
+    const planos = [50, 100, 200, 500, 1000];
+    return planos.filter(p => p >= minMbps);
+  }
+
+  // Evento do formulário
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const minMbps = calcularMbps();
+    resultadoMbps.textContent = `${minMbps} Mbps`;
+
+    const planos = gerarPlanos(minMbps);
+    planosSugeridos.innerHTML = planos.length
+      ? planos.map(p => `<li>${p} Mbps</li>`).join('')
+      : '<li>Nenhum plano disponível</li>';
+  });
 }
 
 //Limpar Formulario e resetar range
