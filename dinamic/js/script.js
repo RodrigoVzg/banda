@@ -46,7 +46,6 @@ function inicializarSimulador() {
 
     if (!safetyInput || !safetyValue) return;
 
-
     safetyInput.addEventListener('input', () => {
         const val = safetyInput.value;
         safetyValue.textContent = `${val}%`;
@@ -121,4 +120,36 @@ function resetSimulador() {
 
     resultadoMbps.textContent = '';
     planosSugeridos.innerHTML = '';
+}
+
+//Sobre nós
+function carregarPopup(busca) {
+    let popup = document.getElementById("popup");
+    let popupContent = document.getElementById("popup-content");
+    let overlay = document.getElementById("overlay");
+
+    let requisicao = new XMLHttpRequest();
+
+    requisicao.onreadystatechange = () => {
+        if (requisicao.readyState == 4 && requisicao.status == 200) {
+            popupContent.innerHTML = requisicao.response;
+            overlay.style.display = "block";
+            popup.style.display = "block";
+            setTimeout(() => popup.classList.add("show"), 10);
+        }
+    };
+
+    requisicao.open("GET", `dinamic/html/${busca}.html`);
+    requisicao.send();
+}
+
+function fecharPopup() {
+    let popup = document.getElementById("popup");
+    let overlay = document.getElementById("overlay");
+
+    popup.classList.remove("show");
+    setTimeout(() => {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+    }, 300);
 }

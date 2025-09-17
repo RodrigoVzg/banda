@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="static/css/inicio.css">
     <link rel="stylesheet" href="static/css/form.css">
     <link rel="stylesheet" href="static/css/wifi.css">
+    <link rel="stylesheet" href="static/css/about.css">
 </head>
 <body>
     <header>
@@ -17,6 +18,7 @@
                 <li><a href="#" onclick="carregarPagina('inicio')">Início</a></li>
                 <li><a href="#" onclick="carregarPagina('calculadora')">Calculadora</a></li>
                 <li><a href="#" onclick="carregarPagina('wifi')">Como funciona a rede wi-fi?</a></li>
+                <li><a href="#" onclick="carregarPopup('about')">Quem somos?</a></li>
             </ul>
         </nav>
 
@@ -37,7 +39,12 @@
         </section>
     </header>
 
-    <main>
+    <main class="main">
+        <div id="overlay" class="overlay" style="display: none;" onclick="fecharPopup()"></div>
+        <div id="popup" class="popup" style="display: none;">
+            <button class="close-btn" onclick="fecharPopup()">✖</button>
+            <div id="popup-content"></div>
+        </div>
         <section id="conteudo"></section>
     </main>
 

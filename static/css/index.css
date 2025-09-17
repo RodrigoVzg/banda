@@ -126,3 +126,155 @@ footer p {
     padding: 12px 5px;
   }
 }
+
+.main {
+  box-sizing: border-box;
+  max-width: 100%;      
+  margin: 2rem auto;      
+  padding: 2rem;          
+  background: transparent;
+  color: inherit;
+  transition: padding 0.2s ease, margin 0.2s ease;
+  min-height: calc(100vh - 260px); 
+  display: block;
+}
+
+
+.main #conteudo {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(28,28,30,0.85);
+  border-radius: 12px;
+  padding: 1.6rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  color: #e6e6e6;
+  line-height: 1.6;
+}
+
+.main .grid {
+  display: grid;
+  grid-template-columns: 1fr 320px; 
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.main .full {
+  grid-column: 1 / -1;
+}
+
+.main .card {
+  background: #1c1c1e;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.main h1, .main h2, .main h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: #4da6ff;
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    max-width: 960px;
+    margin: 1.8rem auto;
+    padding: 1.6rem;
+    min-height: calc(100vh - 240px);
+  }
+
+  .main #conteudo {
+    padding: 1.4rem;
+  }
+
+  .main .grid {
+    grid-template-columns: 1fr 280px;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .main {
+    max-width: 720px;
+    margin: 1.5rem 1rem;
+    padding: 1.2rem;
+    min-height: calc(100vh - 220px);
+  }
+
+  .main #conteudo {
+    padding: 1rem;
+  }
+
+  .main .grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .main .card {
+    padding: 0.9rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  }
+
+  .main h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    max-width: 100%;
+    margin: 1rem 0.6rem;
+    padding: 0.9rem;
+    min-height: calc(100vh - 200px);
+  }
+
+  .main #conteudo {
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .main .card {
+    padding: 0.7rem;
+    border-radius: 8px;
+  }
+
+  .main h1 {
+    font-size: 1.25rem;
+  }
+
+  .main h2 {
+    font-size: 1rem;
+  }
+
+  .main input[type="text"],
+  .main input[type="number"],
+  .main select,
+  .main textarea,
+  .main button {
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .main #conteudo,
+  .main .card {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.32);
+  }
+}
+
+.main a, .main button {
+  transition: opacity 0.15s ease, transform 0.12s ease;
+}
+
+.main a:focus, .main button:focus {
+  outline: 3px solid rgba(77,166,255,0.18);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.u-spacer-small { height: .6rem; }
+.u-spacer { height: 1.2rem; }
+.u-spacer-large { height: 2rem; }
