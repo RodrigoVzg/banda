@@ -1,6 +1,6 @@
 //Abrir site com uma página carregada
 document.addEventListener("DOMContentLoaded", () => {
-    carregarPagina("inicio");
+    carregarPagina("calculadora");
 });
 
 //carrossel
