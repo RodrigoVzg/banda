@@ -1,155 +1,108 @@
-//Abrir site com uma página carregada
 document.addEventListener("DOMContentLoaded", () => {
-    carregarPagina("calculadora");
+    carregarPagina("analise");
 });
 
-//carrossel
-const slides = document.querySelectorAll(".slide");
-let indice = 0;
+let paginaAtual = "";
 
-document.querySelector(".proximo").addEventListener("click", () => {
-    mudarSlide(indice + 1);
-});
+function carregarPagina(pagina, seletor = "#conteudo") {
+    paginaAtual = pagina;
 
-document.querySelector(".anterior").addEventListener("click", () => {
-    mudarSlide(indice - 1);
-});
+    const conteudoLocal = document.querySelector(seletor);
+    const xhr = new XMLHttpRequest();
 
-function mudarSlide(novoIndice) {
-    slides[indice].classList.remove("ativo");
-    indice = (novoIndice + slides.length) % slides.length;
-    slides[indice].classList.add("ativo");
-    document.querySelector(".slides").style.transform = `translateX(-${indice * 100}%)`;
-}
-//Ajax
-function carregarPagina (busca){
-    let conteudoLocal = document.querySelector("#conteudo");
-    let requisicao = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
 
-    requisicao.onreadystatechange = () => {
-        if (requisicao.readyState == 4 && requisicao.status == 200) {
-            conteudoLocal.innerHTML = requisicao.response;
-            if (busca == "calculadora"){
-                inicializarSimulador(); 
+                conteudoLocal.innerHTML = xhr.responseText;
+
+                // Dispara evento para JS internos
+                document.dispatchEvent(new CustomEvent("ajaxContentLoaded", {
+                    detail: { pagina }
+                }));
+            } else {
+                conteudoLocal.innerHTML = `<p style="color:red;">Erro ao carregar ${pagina}.html</p>`;
             }
-        }
-    }
-
-    requisicao.open('GET', `dinamic/html/${busca}.html`);
-    requisicao.send();
-}
-
-//Calculadora
-function inicializarSimulador() {
-    const safetyInput = document.getElementById('safety');
-    const safetyValue = document.getElementById('safety-value');
-
-    if (!safetyInput || !safetyValue) return;
-
-    safetyInput.addEventListener('input', () => {
-        const val = safetyInput.value;
-        safetyValue.textContent = `${val}%`;
-
-        const percent = (val - safetyInput.min) / (safetyInput.max - safetyInput.min) * 100;
-        safetyInput.style.setProperty('--value', `${percent}%`);
-    });
-
-    const form = document.getElementById('simulador');
-    const resultadoMbps = document.getElementById('recom-mbps');
-    const planosSugeridos = document.getElementById('planos-sugeridos');
-
-    // Função para calcular Mbps
-    function calcularMbps() {
-        const tvCount = Number(document.getElementById('tv-count').value);
-        const tvUsage = Number(document.querySelector('input[name="tv-usage"]:checked').value);
-
-        const pcCount = Number(document.getElementById('pc-count').value);
-        const pcUsage = Number(document.querySelector('input[name="pc-usage"]:checked').value);
-
-        const phoneCount = Number(document.getElementById('phone-count').value);
-        const phoneUsage = Number(document.querySelector('input[name="phone-usage"]:checked').value);
-
-        const otherCount = Number(document.getElementById('other-count').value);
-        const otherUsage = Number(document.querySelector('input[name="other-usage"]:checked').value);
-
-        const safetyPercent = Number(safetyInput.value);
-
-        let totalMbps =
-            tvCount * tvUsage +
-            pcCount * pcUsage +
-            phoneCount * phoneUsage +
-            otherCount * otherUsage;
-
-            totalMbps *= 1 + safetyPercent / 100;
-            return Math.ceil(totalMbps);
-    }
-
-    // Gera lista de planos compatíveis
-    function gerarPlanos(minMbps) {
-        const planos = [50, 100, 200, 500, 1000];
-        return planos.filter(p => p >= minMbps);
-    }
-
-    // Evento do formulário
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const minMbps = calcularMbps();
-        resultadoMbps.textContent = `${minMbps} Mbps`;
-
-        const planos = gerarPlanos(minMbps);
-        planosSugeridos.innerHTML = planos.length
-        ? planos.map(p => `<li>${p} Mbps</li>`).join('')
-        : '<li>Nenhum plano disponível</li>';
-    });
-}
-
-//Limpar Formulario e resetar range
-function resetSimulador() {
-    const safetyInput = document.getElementById('safety');
-    const safetyValue = document.getElementById('safety-value');
-    const resultadoMbps = document.getElementById('recom-mbps');
-    const planosSugeridos = document.getElementById('planos-sugeridos');
-
-    if (!safetyInput || !safetyValue || !resultadoMbps || !planosSugeridos) return;
-
-    const val = 20;
-    safetyValue.textContent = `${val}%`;
-
-    const percent = (val - safetyInput.min) / (safetyInput.max - safetyInput.min) * 100;
-    safetyInput.style.setProperty('--value', `${percent}%`);
-
-    resultadoMbps.textContent = '';
-    planosSugeridos.innerHTML = '';
-}
-
-//Sobre nós
-function carregarPopup(busca) {
-    let popup = document.getElementById("popup");
-    let popupContent = document.getElementById("popup-content");
-    let overlay = document.getElementById("overlay");
-
-    let requisicao = new XMLHttpRequest();
-
-    requisicao.onreadystatechange = () => {
-        if (requisicao.readyState == 4 && requisicao.status == 200) {
-            popupContent.innerHTML = requisicao.response;
-            overlay.style.display = "block";
-            popup.style.display = "block";
-            setTimeout(() => popup.classList.add("show"), 10);
         }
     };
 
-    requisicao.open("GET", `dinamic/html/${busca}.html`);
-    requisicao.send();
+    xhr.open("GET", `dinamic/html/${pagina}.html`, true);
+    xhr.send();
 }
 
-function fecharPopup() {
-    let popup = document.getElementById("popup");
-    let overlay = document.getElementById("overlay");
 
-    popup.classList.remove("show");
-    setTimeout(() => {
-        popup.style.display = "none";
-        overlay.style.display = "none";
-    }, 300);
+// =====================================
+//  SALVAR DADOS NO sessionStorage
+// =====================================
+
+function salvarCampo(nomeCampo, valor) {
+    let dados = JSON.parse(sessionStorage.getItem("formulario")) || {};
+    dados[nomeCampo] = valor;
+    sessionStorage.setItem("formulario", JSON.stringify(dados));
 }
+
+
+// ========== Funções chamadas nos botões ==========
+function salvarQuantidadePessoas() {
+    salvarCampo("pessoas", document.querySelector('input[name="pessoas"]:checked')?.value);
+}
+
+function salvarTrabalhoRemoto() {
+    salvarCampo("trabalhoRemoto", document.querySelector('input[name="trabalho"]:checked')?.value);
+}
+
+function salvarFrequenciaStreaming() {
+    salvarCampo("streaming", document.querySelector('input[name="streaming"]:checked')?.value);
+}
+
+function salvarJogosOnline() {
+    salvarCampo("jogos", document.querySelector('input[name="jogos"]:checked')?.value);
+}
+
+function salvarVideochamadas() {
+    salvarCampo("video", document.querySelector('input[name="video"]:checked')?.value);
+}
+
+function salvarAtividadesImportantes() {
+    const atividades = [...document.querySelectorAll('input[name="atividades[]"]:checked')].map(i => i.value);
+    salvarCampo("atividades", atividades);
+}
+
+function salvarDispositivosECriticidade() {
+    salvarCampo("dispositivos", document.getElementById("range-dispositivos").value);
+    salvarCampo("criticidade", document.querySelector('input[name="criticidade"]:checked')?.value);
+}
+
+function salvarMargemSeguranca() {
+    salvarCampo("margem", document.getElementById("range-margem").value);
+    carregarPagina("resultado");
+}
+
+
+// =====================================
+//  CONTROLES DE RANGE
+// =====================================
+function inicializarRanges() {
+    const ranges = [
+        { id: "range-dispositivos", label: "val-dispositivos", sufixo: " dispositivos" },
+        { id: "range-margem",       label: "val-margem",       sufixo: "%" }
+    ];
+
+    ranges.forEach(r => {
+        const input = document.getElementById(r.id);
+        const label = document.getElementById(r.label);
+        if (!input || !label) return;
+
+        const atualizar = () => {
+            label.textContent = input.value + r.sufixo;
+
+            const pct = (input.value - input.min) / (input.max - input.min) * 100;
+            input.style.background = `linear-gradient(to right, #007bff ${pct}%, #ddd ${pct}%)`;
+        };
+
+        atualizar();
+        input.addEventListener("input", atualizar);
+    });
+}
+
+document.addEventListener("ajaxContentLoaded", inicializarRanges);

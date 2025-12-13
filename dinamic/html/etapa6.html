@@ -1,0 +1,30 @@
+<div class="step" data-step="6" id="step-6">
+    <div class="progress">
+        <span class="circle">1</span><span class="circle">2</span><span class="circle">3</span>
+        <span class="circle">4</span><span class="circle">5</span><span class="circle active">6</span>
+        <span class="circle">7</span><span class="circle">8</span>
+    </div>
+
+    <div class="step-icon">📋</div>
+    <h2 class="step-title">Quais atividades são mais importantes?</h2>
+    <p class="step-sub">Selecione todas que se aplicam</p>
+
+    <div class="step-checklist">
+        <label class="check"><input type="checkbox" name="atividades[]" value="redes"> Redes sociais e navegação</label>
+        <label class="check"><input type="checkbox" name="atividades[]" value="download"> Download de arquivos
+            grandes</label>
+        <label class="check"><input type="checkbox" name="atividades[]" value="backup"> Backup na nuvem</label>
+        <label class="check"><input type="checkbox" name="atividades[]" value="smarthome"> Smart home (câmeras,
+            IoT)</label>
+        <label class="check"><input type="checkbox" name="atividades[]" value="streaming4k"> Streaming 4K/HDR</label>
+        <label class="check"><input type="checkbox" name="atividades[]" value="upload"> Uploading de conteúdo (YouTube,
+            etc)</label>
+        <label class="check"><input type="checkbox" name="atividades[]" value="ensino"> Ensino / aprendizado
+            online</label>
+    </div>
+
+    <div class="step-actions">
+        <button class="btn back" onclick="carregarPagina('etapa5')">Voltar</button>
+        <button class="btn primary" onclick="salvarAtividadesImportantes(); carregarPagina('etapa7')">Próximo</button>
+    </div>
+</div>

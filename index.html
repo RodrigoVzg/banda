@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de velocidade de rede</title>
-    <link rel="stylesheet" href="static/css/index.css">
-    <link rel="stylesheet" href="static/css/carrossel.css">
-    <link rel="stylesheet" href="static/css/inicio.css">
-    <link rel="stylesheet" href="static/css/form.css">
-    <link rel="stylesheet" href="static/css/wifi.css">
-    <link rel="stylesheet" href="static/css/about.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="static/css/hero.css">
+    <link rel="stylesheet" href="static/css/steps.css">
+    <link rel="stylesheet" href="static/css/resultado.css">
+    <link rel="stylesheet" href="static/css/responsividade.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="carregarPagina('calculadora')">Calculadora</a></li>
-                <li><a href="#" onclick="carregarPagina('wifi')">Como funciona a rede wi-fi?</a></li>
-                <li><a href="#" onclick="carregarPopup('about')">Quem somos?</a></li>
-            </ul>
-        </nav>
 
-        <section class="carrossel">
-            <div class="slides">
-                <div class="slide ativo">
-                    <img src="static/imagens/imagem1.jpg" alt="Imagem 1">
-                </div>
-                <div class="slide">
-                    <img src="static/imagens/imagem2.jpg" alt="Imagem 2">
-                </div>
-                <div class="slide">
-                    <img src="static/imagens/imagem3.jpg" alt="Imagem 3">
-                </div>
-            </div>
-            <button class="anterior">&#10094;</button>
-            <button class="proximo">&#10095;</button>
-        </section>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="nav-link">Quem Somos</a>
+        </nav>
     </header>
 
-    <main class="main">
-        <div id="overlay" class="overlay" style="display: none;" onclick="fecharPopup()"></div>
-        <div id="popup" class="popup" style="display: none;">
-            <button class="close-btn" onclick="fecharPopup()">✖</button>
-            <div id="popup-content"></div>
-        </div>
-        <section id="conteudo"></section>
-    </main>
+    <section class="hero">
+        <img src="https://cdn-icons-png.flaticon.com/512/93/93158.png" alt="Wi-Fi" class="hero-icon" />
+        <h1>Teste de Velocidade</h1>
+        <p>Descubra a real velocidade da sua conexão de internet e otimize sua experiência online</p>
 
-    <footer>
-        <p>&copy; 2025 - Calculadora de Velocidade de Rede | Todos os direitos reservados</p>
-    </footer>
+        <div class="hero-buttons">
+            <button>⚡ Teste Rápido</button>
+            <button>🛡️ Seguro</button>
+            <button>📈 Histórico Completo</button>
+        </div>
+    </section>
+
+    <main id="conteudo"></main>
     <script src="dinamic/js/script.js"></script>
+    <script src="dinamic/js/resultado.js"></script>
 </body>
+
 </html>

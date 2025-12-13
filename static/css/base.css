@@ -1,0 +1,63 @@
+/* =========================
+   BASE – RESET, VARIÁVEIS, BODY, HEADER
+   ========================= */
+
+/* Variáveis globais */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #0a4cff;
+  --muted: #6b7280;
+  --border: #d7dbea;
+  --success: #16a34a;
+}
+
+/* Reset / padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f7ff;
+  background: var(--bg);
+  color: #111;
+}
+
+/* Container geral */
+main {
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:40px 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: #EFF3FC;
+}
+
+.header .logo img {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-link {
+  color: #1e3a8a;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #eaf0ff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #d6e3ff;
+}

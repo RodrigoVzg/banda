@@ -1,0 +1,40 @@
+<div class="resultado-container">
+    <button class="btn-voltar" onclick="carregarPagina('analise')">Voltar ao Questionário</button>
+
+
+    <header class="resultado-header">
+        <h1>Análise do seu Perfil</h1>
+        <p>Baseado nas suas respostas, aqui estão nossas recomendações</p>
+    </header>
+
+
+    <div class="grid-top">
+        <div class="card card-velocidades">
+            <h3>Velocidades Recomendadas</h3>
+            <div class="vel-line"><span>Download Ideal:</span> <strong id="download-ideal">— Mbps</strong></div>
+            <div class="vel-line"><span>Upload Ideal:</span> <strong id="upload-ideal">— Mbps</strong></div>
+            <div class="vel-line"><span>Ping Ideal:</span> <strong id="ping-ideal">— ms</strong></div>
+        </div>
+
+
+        <div class="card card-perfil">
+            <h3>Seu Perfil de Uso</h3>
+            <ul id="perfil-list"></ul>
+        </div>
+    </div>
+
+
+    <div class="card card-recomendacoes">
+        <h3>Recomendações Personalizadas</h3>
+        <ul id="recs-list"></ul>
+    </div>
+
+
+    <div class="card card-dicas">
+        <h3>Como Melhorar Sua Conexão</h3>
+        <ul>
+            <li>Posicione o roteador em local central e elevado</li>
+            <li>Use conexão cabeada para dispositivos que demandam mais banda</li>
+        </ul>
+    </div>
+</div>

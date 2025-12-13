@@ -1,0 +1,22 @@
+<div class="step" data-step="8" id="step-8">
+    <div class="progress">
+        <span class="circle">1</span><span class="circle">2</span><span class="circle">3</span>
+        <span class="circle">4</span><span class="circle">5</span><span class="circle">6</span>
+        <span class="circle">7</span><span class="circle active">8</span>
+    </div>
+
+    <div class="step-icon">📊</div>
+    <h2 class="step-title">Qual margem de segurança você prefere?</h2>
+    <p class="step-sub">Defina o quanto de folga você quer na velocidade contratada para garantir estabilidade mesmo em
+        horários de pico.</p>
+
+    <div class="step-range">
+        <input type="range" name="margem" min="0" max="100" value="20" class="slider" id="range-margem">
+        <div class="range-value" id="val-margem">20%</div>
+    </div>
+
+    <div class="step-actions">
+        <button class="btn back" onclick="carregarPagina('etapa7')">Voltar</button>
+        <button class="btn primary" onclick="salvarMargemSeguranca()">Concluir</button>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="step" data-step="2" id="step-2">
+    <div class="progress">
+        <span class="circle">1</span><span class="circle active">2</span><span class="circle">3</span>
+        <span class="circle">4</span><span class="circle">5</span><span class="circle">6</span>
+        <span class="circle">7</span><span class="circle">8</span>
+    </div>
+
+    <div class="step-icon">🏠</div>
+    <h2 class="step-title">Vocês trabalham ou estudam de casa?</h2>
+    <p class="step-sub">Trabalho remoto exige mais estabilidade</p>
+
+    <div class="step-options" role="radiogroup" aria-label="Trabalho ou estudo">
+        <label class="option"><input type="radio" name="trabalho" value="fora"> Não, trabalhamos/estudamos fora</label>
+        <label class="option"><input type="radio" name="trabalho" value="àsvezes"> Às vezes (1-2 dias/semana)</label>
+        <label class="option"><input type="radio" name="trabalho" value="frequente"> Frequentemente (3-4
+            dias/semana)</label>
+        <label class="option"><input type="radio" name="trabalho" value="sempre"> Sempre (tempo integral em
+            casa)</label>
+    </div>
+
+    <div class="step-actions">
+        <button class="btn back" onclick="carregarPagina('etapa1')">Voltar</button>
+        <button class="btn primary" onclick="salvarTrabalhoRemoto(); carregarPagina('etapa3')">Próximo</button>
+    </div>
+</div>

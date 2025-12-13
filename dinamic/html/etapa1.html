@@ -1,0 +1,23 @@
+<div class="step" data-step="1" id="step-1">
+    <div class="progress">
+        <span class="circle active">1</span><span class="circle">2</span><span class="circle">3</span>
+        <span class="circle">4</span><span class="circle">5</span><span class="circle">6</span>
+        <span class="circle">7</span><span class="circle">8</span>
+    </div>
+
+    <div class="step-icon">👤</div>
+    <h2 class="step-title">Quantas pessoas moram na sua casa?</h2>
+    <p class="step-sub">Isso nos ajuda a entender a demanda da sua rede</p>
+
+    <div class="step-options" role="radiogroup" aria-label="Quantidade de pessoas">
+        <label class="option"><input type="radio" name="pessoas" value="1"> Apenas eu (1 pessoa)</label>
+        <label class="option"><input type="radio" name="pessoas" value="2-3"> 2-3 pessoas</label>
+        <label class="option"><input type="radio" name="pessoas" value="4-5"> 4-5 pessoas</label>
+        <label class="option"><input type="radio" name="pessoas" value="6+"> Mais de 6 pessoas</label>
+    </div>
+
+    <div class="step-actions">
+        <button class="btn back" onclick="carregarPagina('analise')">Voltar</button>
+        <button class="btn primary" onclick="salvarQuantidadePessoas(); carregarPagina('etapa2')">Próximo</button>
+    </div>
+</div>

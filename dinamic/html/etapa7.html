@@ -1,0 +1,29 @@
+<div class="step" data-step="7" id="step-7">
+    <div class="progress">
+        <span class="circle">1</span><span class="circle">2</span><span class="circle">3</span>
+        <span class="circle">4</span><span class="circle">5</span><span class="circle">6</span>
+        <span class="circle active">7</span><span class="circle">8</span>
+    </div>
+
+    <div class="step-icon">📱</div>
+    <h2 class="step-title">Quantos dispositivos vocês possuem?</h2>
+    <p class="step-sub">Inclua smartphones, notebooks, TVs, tablets e outros dispositivos conectados.</p>
+
+    <div class="step-range">
+        <input type="range" name="dispositivos" min="1" max="50" value="5" class="slider" id="range-dispositivos">
+        <div class="range-value" id="val-dispositivos">5 dispositivos</div>
+    </div>
+
+    <h3 class="sub-crit">Quão crítica é a internet para vocês?</h3>
+    <div class="step-options" role="radiogroup" aria-label="Criticidade">
+        <label class="option"><input type="radio" name="criticidade" value="basico"> Uso básico</label>
+        <label class="option"><input type="radio" name="criticidade" value="importante"> Importante</label>
+        <label class="option"><input type="radio" name="criticidade" value="critico"> Crítica</label>
+    </div>
+
+    <div class="step-actions">
+        <button class="btn back" onclick="carregarPagina('etapa6')">Voltar</button>
+        <button class="btn primary"
+            onclick="salvarDispositivosECriticidade(); carregarPagina('etapa8')">Próximo</button>
+    </div>
+</div>

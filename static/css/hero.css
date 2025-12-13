@@ -1,0 +1,51 @@
+/* =========================
+   HERO – SEÇÃO INICIAL
+   ========================= */
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #EFF3FC;
+}
+
+.hero-icon {
+  width: 50px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  color: #475569;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+/* Botões */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.hero-buttons button {
+  background-color: white;
+  color: #1e3a8a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, background 0.3s;
+}
+
+.hero-buttons button:hover {
+  background-color: #eaf0ff;
+  transform: translateY(-2px);
+}
