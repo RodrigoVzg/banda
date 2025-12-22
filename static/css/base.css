@@ -48,16 +48,18 @@ main {
   height: 32px;
 }
 
-.nav-link {
+.nav-button {
   color: #1e3a8a;
   text-decoration: none;
+  font-size: 18px;
   font-weight: 600;
   background-color: #eaf0ff;
   padding: 8px 14px;
   border-radius: 8px;
   transition: background 0.3s;
+  border: none;
 }
 
-.nav-link:hover {
+.nav-button:hover {
   background-color: #d6e3ff;
 }

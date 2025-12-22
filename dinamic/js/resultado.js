@@ -111,7 +111,7 @@ function preencherResultado() {
 
 
     /* =========================================================
-       RECOMENDAÇÕES PERSONALIZADAS
+       RECOMENDAÇÕES 
        ========================================================= */
     const recs = [];
 
@@ -136,11 +136,11 @@ function preencherResultado() {
 
 
     /* =========================================================
-       DICAS FIXAS + DICAS PERSONALIZADAS
+       DICAS 
        ========================================================= */
 
 
-    ul.innerHTML = ""; // limpa completamente
+    ul.innerHTML = "";
 
     // 1. adiciona dicas fixas
     dicasFixas.forEach(d => {
