@@ -1,0 +1,16 @@
+.analise-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.analise-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,10 @@
+@import "./base/variables.css";
+@import "./base/reset.css";
+@import "./base/layout.css";
+@import "./components/header.css";
+@import "./components/hero.css";
+@import "./components/steps.css";
+@import "./components/buttons.css";
+@import "./pages/analise.css";
+@import "./pages/resultado.css";
+@import "./responsive.css";
