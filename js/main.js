@@ -10,6 +10,13 @@ import {
     salvarMargemSeguranca
 } from "./core/form.js";
 import "./ui/ranges.js";
+import { abrirPopupQuemSomos } from "./ui/about.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    document
+        .getElementById("btn-quem-somos")
+        .addEventListener("click", abrirPopupQuemSomos);
+});
 
 window.carregarPagina = carregarPagina;
 window.salvarQuantidadePessoas = salvarQuantidadePessoas;

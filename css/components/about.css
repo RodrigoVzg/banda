@@ -1,0 +1,122 @@
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(4px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+.popup-box {
+    position: relative;
+
+    background: #ffffff;
+    border-radius: 16px;
+    width: 92%;
+    max-width: 520px;
+    padding: 28px 32px;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 2px 6px rgba(0, 0, 0, 0.05);
+
+    animation: popupFadeIn 0.25s ease-out;
+}
+
+.popup-intro {
+    margin-bottom: 18px;
+}
+
+.popup-box h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e40af;
+}
+
+.popup-box p {
+    margin-bottom: 14px;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.popup-person {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.popup-purpose {
+    margin-top: 10px;
+}
+
+.popup-contact {
+    margin-top: 18px;
+}
+
+.popup-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+}
+
+.popup-contact li {
+    margin-bottom: 6px;
+}
+
+.popup-box a {
+    color: #1e40af;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.popup-box a:hover {
+    text-decoration: underline;
+}
+
+.popup-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+
+    background: transparent;
+    border: none;
+
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+
+    color: #64748b;
+    transition: color 0.2s ease;
+}
+
+.popup-close:hover {
+    color: #1e40af;
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-box {
+        padding: 22px 20px;
+        border-radius: 14px;
+    }
+}
